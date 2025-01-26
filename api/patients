@@ -1,0 +1,7 @@
+HTTP/1.1 500 Internal Server Error
+content-type: application/json; charset=utf-8
+content-length: 22
+Date: Sun, 26 Jan 2025 14:12:43 GMT
+Connection: keep-alive
+Keep-Alive: timeout=72
+
