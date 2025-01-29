@@ -36,7 +36,7 @@ server.addHook("preHandler", (_req, _reply, done) => {
 
 // Routes
 server.get("/patients", async () => {
-	return { total: db.count(), patients: db.all() };
+	return { total: db.count(), patients: db.all().map((p) => p.id) };
 });
 
 server.get(

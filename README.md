@@ -24,9 +24,10 @@ Unternehmen: Entwicklung einer modernen Alternative für die EPA.
 Jeden Tag muss die Liste aller Patienten abgerufen werden, um neue Patienten zu speichern und alte zu löschen.
 Diese Patienten haben aktive Versorgungen. Diese müssen einzeln pro Patient abgerufen werden.
 
-Leider ist die KK per Modem angebunden und deshalb sehr störanfällig. Die Fehlerquote liegt bei ca. 80%.
+Leider ist die KK per Modem angebunden und deshalb sehr störanfällig. Die Fehlerquote ist deshalb sehr hoch.
 
-Die API mit den Patienten liefert leider immer sehr große Datenmengen zurück. Wir müssen deshalb einen Weg finden, um die GRPC-Grenzen nicht zu verletzen.
+Die API mit den Patienten liefert eventuell sehr große Datenmengen zurück. Wir müssen deshalb einen Weg finden, um die GRPC-Grenzen nicht zu verletzen.
+Wichtig: Die API stellt Versorgungen erst nach 5 Sekunden bereit.
 
 [] Patienten abrufen und in "Datenbank" speichern (alte löschen)
 [] Versorgungen der neuen Patienten abrufen und speichern
@@ -35,8 +36,8 @@ Die API mit den Patienten liefert leider immer sehr große Datenmengen zurück. 
 ## 3.1.1. Patient nicht versichert (Cancellation / Compensation)
 
 Liefert die API ein 410 zurück, bedeutet das, dass der Patient nicht mehr versichert ist.
-Der Sync muss dann abgebrochen werden
-Es wurde beschlossen, dass die Activity einen Nonretryable-Error wirft.
+Der Sync muss dann abgebrochen werden.
+Optional: (Es wurde beschlossen, dass die Activity einen Nonretryable-Error wirft.)
 
 ## 3.2. Progress abrufen (Queries)
 
@@ -44,7 +45,7 @@ Das Management möchte den Fortschritt des Sync sehen...
 
 ## 3.3. Synchronisation pausieren (Updates)
 
-Manchmal ruft die Krankenkasse wegen zu vielen Abrufen. Dann müssen wir die Synchronisation manuell pausieren und fortsetzen.
+Manchmal ruft die Krankenkasse wegen zu vielen Abrufen bei uns an. Dann müssen wir die Synchronisation manuell pausieren und fortsetzen.
 
 ## 3.4. Einzelne Patienten synchronisieren (Early return / Sync/Async)
 

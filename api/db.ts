@@ -43,16 +43,18 @@ export class PatientDB {
 				deleted: false,
 			});
 			const prescriptions: Prescription[] = [];
-			for (let y = 0; y < 100; y++) {
-				prescriptions.push({
-					id: randomUUID(),
-					patientId: id,
-					name: faker.lorem.words(),
-					description: faker.lorem.paragraph(10),
-					date: faker.date.recent(),
-				});
-			}
-			this.prescriptions.set(id, prescriptions);
+			setTimeout(() => {
+				for (let y = 0; y < 100; y++) {
+					prescriptions.push({
+						id: randomUUID(),
+						patientId: id,
+						name: faker.lorem.words(),
+						description: faker.lorem.paragraph(10),
+						date: faker.date.recent(),
+					});
+				}
+				this.prescriptions.set(id, prescriptions);
+			}, 5000);
 		}
 	}
 
