@@ -15,7 +15,7 @@ Services:
 
 # Context
 
-Unternehmen: Entwicklung einer modernen Alternative für die EPA.
+Unternehmen: Entwicklung einer modernen Alternative für die ePA.
 
 # Aufgaben
 
